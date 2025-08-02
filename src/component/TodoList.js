@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../TodoList.css';
 
-// The URL of your backend server
+// TODO: Replace this with the public URL of your deployed backend server.
+// Example: const API_URL = 'https://your-backend-service-name.onrender.com/api/todos';
 const API_URL = 'http://localhost:5000/api/todos';
 
 export default function TodoList() {
@@ -15,8 +16,8 @@ export default function TodoList() {
 
   // Function to fetch todos from the server
   const fetchTodos = async () => {
-    setLoading(true); // Set loading to true before fetching
-    setError(null); // Clear any previous errors
+    setLoading(true);
+    setError(null);
     try {
       const response = await axios.get(API_URL);
       setTodos(response.data);
@@ -24,14 +25,14 @@ export default function TodoList() {
       console.error('Error fetching todos:', err);
       setError('Failed to fetch todos. Please ensure your backend server is running.');
     } finally {
-      setLoading(false); // Set loading to false after fetch, regardless of success or failure
+      setLoading(false);
     }
   };
 
   // useEffect hook to fetch todos when the component mounts
   useEffect(() => {
     fetchTodos();
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
   // Function to handle adding a new todo
   const handleAddTodo = async (e) => {
