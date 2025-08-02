@@ -6,7 +6,7 @@ import '../TodoList.css';
 
 // TODO: Replace this with the public URL of your deployed backend server.
 // Example: const API_URL = 'https://your-backend-service-name.onrender.com/api/todos';
-const API_URL = 'http://dpg-d20pqpbipnbc73dhvv50-a';
+const API_URL = 'http://dpg-d20pqpbipnbc73dhvv50-a.oregon-postgres.render.com';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([]);
